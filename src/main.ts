@@ -13,7 +13,6 @@ async function run() {
   const ALLOWABLE_DEFECTS = Number(core.getInput('DEFECTS'));
   const LABEL = core.getInput('LABEL');
 
-  core.info(`${REQUIRED_APPROVALS} ${ALLOWABLE_DEFECTS} ${LABEL}`)
 
   // This should be a token with access to your repository scoped in as a secret.
   // The YML workflow will need to set github_token with the GitHub Secret Token
@@ -33,6 +32,8 @@ async function run() {
     number: PR_NUMBER,
     labels: [ LABEL ],
   }
+
+  core.info(`${REQUIRED_APPROVALS} ${ALLOWABLE_DEFECTS} ${LABEL} ${PR_NUMBER}`)
 
   const { data: reviews } = await octokit.pulls.listReviews(PR_CONFIG);
   const { data: pr } = await octokit.pulls.get(PR_CONFIG);
