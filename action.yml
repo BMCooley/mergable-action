@@ -2,13 +2,13 @@ name: 'mergeable-label'
 description: 'Apply labels to PRs based on review status'
 author: '@BMCooley'
 inputs:
-  label:              # change this
+  LABEL:              # change this
     description: 'label to be applied or removed'
     default: 'mergeable'
-  approvals:              # change this
+  APPROVALS:              # change this
     description: 'number of approvals required'
     default: '2'
-  defects:              # change this
+  DEFECTS:              # change this
     description: 'max number of allowable defects'
     default: '0'
 runs:
