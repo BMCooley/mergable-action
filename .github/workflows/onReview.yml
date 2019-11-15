@@ -6,7 +6,10 @@ jobs:
   label-update:
     runs-on: ubuntu-latest
     steps:
-    - uses: BMCooley/mergeable-action@v1 
+    - run: npm ci
+    - run: npm run build
+    - run: npm test
+    - uses: ./
       with: 
         APPROVALS: "2"
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
