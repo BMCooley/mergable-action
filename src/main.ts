@@ -22,13 +22,15 @@ async function run() {
   const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN');
   const octokit = new github.GitHub(GITHUB_TOKEN);
 
+  const PR_NUMBER = github.context.issue.number
   const PR_CONFIG = {
     ...github.context.repo,
-    number: github.context.issue.number,
+    pull_number: PR_NUMBER,
   }
 
   const LABEL_CONFIG = {
-    ...PR_CONFIG,
+    ...github.context.repo,
+    number: PR_NUMBER,
     labels: [ LABEL ],
   }
 
