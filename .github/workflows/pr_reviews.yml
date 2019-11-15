@@ -1,0 +1,12 @@
+name: "update mergeable label after review"
+on:
+  pull_request_review:
+
+jobs:
+  label-update:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: ./
+      with: 
+        APPROVALS: "2"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
