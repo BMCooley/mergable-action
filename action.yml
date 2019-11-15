@@ -1,10 +1,16 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'mergeable-label'
+description: 'Apply labels to PRs based on review status'
+author: '@BMCooley'
 inputs:
-  myInput:              # change this
-    description: 'input description here'
-    default: 'default value if applicable'
+  label:              # change this
+    description: 'label to be applied or removed'
+    default: 'mergeable'
+  approvals:              # change this
+    description: 'number of approvals required'
+    default: '2'
+  defects:              # change this
+    description: 'max number of allowable defects'
+    default: '0'
 runs:
   using: 'node12'
   main: 'lib/main.js'
